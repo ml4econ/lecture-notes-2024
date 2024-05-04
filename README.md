@@ -1,7 +1,7 @@
 Machine Learning for Economists (57750)
 ================
 
-### Spring 2023 @ Hebrew University of Jerusalem
+### Spring 2024 @ Hebrew University of Jerusalem
 
 Instructor: [Itamar Caspi](https://itamarcaspi.rbind.io)
 
