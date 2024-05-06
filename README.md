@@ -62,8 +62,14 @@ The following schedule is subject to change based on class interests and time co
 
 ### Part I: Supervised Machine Learning
 
-1. Course Overview [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2023/master/01-overview/01-overview.html)
-[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2023/master/01-overview/01-overview.pdf) 
+1. Course Overview 
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/01-overview/01-overview.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/01-overview/01-overview.pdf) 
+
+2. Basic Machine Learning Concepts [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/02-basic-ml-concepts/02-basic-ml-concepts.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/02-basic-ml-concepts/02-basic-ml-concepts.pdf)
+
+
 
 ### Projects
 
