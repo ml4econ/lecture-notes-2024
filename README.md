@@ -79,7 +79,7 @@ Can be found [here](https://github.com/ml4econ/lecture-notes-2024/blob/master/re
 
 ## People
 
-+ [**Itamar Caspi**](https://itamarcaspi.rbind.io) is the Head of the Monetary Analysis Unit in the Research Department of the Bank of Israel and an adjunct lecturer at the Hebrew University. He started his career in 2010 as an Economist at the Ministry of Finance. In 2012, he moved to the Bank of Israel and was promoted in 2018 to Senior Economist. He was also elected to represent the Bank as a Research Fellow for three months at the Bank for International Settlements in Switzerland. Caspi holds a BA in Economics and Business Administration from Ben-Gurion University, an MA in Economics from the joint research program at Hebrew University and Tel-Aviv University, an MPA from Harvard Kennedy School, and a PhD in Economics from Bar-Ilan University.
++ [**Itamar Caspi**](https://itamarcaspi.rbind.io) is the Head of the Monetary Analysis Unit in the Research Department of the Bank of Israel and an adjunct lecturer at the Hebrew University. His research interests include macroeconomics, monetary economics, and applied econometrics. He started his career in 2010 as an Economist at the Ministry of Finance. In 2012, he moved to the Bank of Israel and was promoted in 2018 to Senior Economist. He was also elected to represent the Bank as a Research Fellow at the Bank for International Settlements in Basel, Switzerland. Itamar holds a BA in Economics and Business Administration from Ben-Gurion University, an MA in Economics from the joint research program at Hebrew University and Tel-Aviv University, an MPA from Harvard Kennedy School, and a PhD in Economics from Bar-Ilan University. 
 
 -----
 
