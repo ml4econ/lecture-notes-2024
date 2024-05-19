@@ -1,8 +1,8 @@
 ---
 title: "03 - Reproducibility and Version Control"
-subtitle: "ml4econ, HUJI 2023"
+subtitle: "ml4econ, HUJI 2024"
 author: "Itamar Caspi"
-date: "March 26, 2023 (updated: `r Sys.Date()`)"
+date: "May 19, 2024 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     css: [default, "style/middlebury.css", "style/middlebury-fonts.css"]
@@ -159,7 +159,7 @@ knitr::include_graphics("https://rstudio.github.io/renv/logo.svg")
   - Journal article ([`pagedown`](https://github.com/rstudio/pagedown))
   - Dashboard ([`flexdashboards`](https://rmarkdown.rstudio.com/flexdashboard/))
 
-
+- **The new kid on the block:** [Quatro](https://quarto.org/), a multi-language, next generation version of R Markdown from Posit, with many new new features and capabilities. 
 
 
 
@@ -246,24 +246,25 @@ df_new <- df %>%
 
 The above code chunk should be read as:
 
->"generate a new dataframe `df_new` by taking `df`, _then_ select `x` and `y`, _then_ filter rows where `x` is positive, _then_ mutate a new variable `xx = x^2`"
+>"generate a new dataframe `df_new` by taking `df`, _then_ selecting `x` and `y`, _then_ filtering rows where `x` is positive, _then_ mutateing a new variable `xx = x^2`"
 
+- The native pipe operator `|>` is available in R 4.1.0 and later
 
----
-
-# Enter ChatGPT...
-
-```{r chat, echo=FALSE, out.width = "50%", fig.align='center'}
-knitr::include_graphics("figs/chat_dplyr.png")
+```{r }
+df_new <- df |>  
+  select(x, y) |> 
+  filter(x > 0) |> 
+  mutate(xx = x^2)
 ```
 
 
+
 ---
 
-# Even better
+# Enter LLMs...
 
-```{r chat2, echo=FALSE, out.width = "45%", fig.align='center'}
-knitr::include_graphics("figs/chat_dplyr2.png")
+```{r chat, echo=FALSE, out.width = "60%", fig.align='center'}
+knitr::include_graphics("figs/chat_dplyr.png")
 ```
 
 

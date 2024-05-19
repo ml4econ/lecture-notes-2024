@@ -69,6 +69,10 @@ The following schedule is subject to change based on class interests and time co
 2. Basic Machine Learning Concepts [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/02-basic-ml-concepts/02-basic-ml-concepts.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/02-basic-ml-concepts/02-basic-ml-concepts.pdf)
 
+3. Reproducibility
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/03-reprod-vc/03-reprod-vc.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/03-reprod-vc/03-reprod-vc.pdf)
+
 
 
 ### Projects

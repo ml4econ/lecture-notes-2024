@@ -6,8 +6,8 @@
     <meta name="author" content="Itamar Caspi" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/middlebury.css" type="text/css" />
     <link rel="stylesheet" href="style/middlebury-fonts.css" type="text/css" />
   </head>
@@ -19,13 +19,13 @@ class: center, middle, inverse, title-slide
 # 03 - Reproducibility and Version Control
 ]
 .subtitle[
-## ml4econ, HUJI 2023
+## ml4econ, HUJI 2024
 ]
 .author[
 ### Itamar Caspi
 ]
 .date[
-### March 26, 2023 (updated: 2023-03-27)
+### May 19, 2024 (updated: 2024-05-19)
 ]
 
 ---
@@ -156,7 +156,7 @@ name: projects
   - Journal article ([`pagedown`](https://github.com/rstudio/pagedown))
   - Dashboard ([`flexdashboards`](https://rmarkdown.rstudio.com/flexdashboard/))
 
-
+- **The new kid on the block:** [Quatro](https://quarto.org/), a multi-language, next generation version of R Markdown from Posit, with many new new features and capabilities. 
 
 
 
@@ -238,21 +238,25 @@ df_new &lt;- df %&gt;%
 
 The above code chunk should be read as:
 
-&gt;"generate a new dataframe `df_new` by taking `df`, _then_ select `x` and `y`, _then_ filter rows where `x` is positive, _then_ mutate a new variable `xx = x^2`"
+&gt;"generate a new dataframe `df_new` by taking `df`, _then_ selecting `x` and `y`, _then_ filtering rows where `x` is positive, _then_ mutateing a new variable `xx = x^2`"
+
+- The native pipe operator `|&gt;` is available in R 4.1.0 and later
+
+
+```r
+df_new &lt;- df |&gt;  
+  select(x, y) |&gt; 
+  filter(x &gt; 0) |&gt; 
+  mutate(xx = x^2)
+```
+
 
 
 ---
 
-# Enter ChatGPT...
+# Enter LLMs...
 
-&lt;img src="figs/chat_dplyr.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-
----
-
-# Even better
-
-&lt;img src="figs/chat_dplyr2.png" width="45%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/chat_dplyr.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -285,11 +289,12 @@ tidyverse_packages()
 ```
 
 ```
-##  [1] "broom"         "cli"           "crayon"        "dbplyr"        "dplyr"         "dtplyr"        "forcats"      
-##  [8] "ggplot2"       "googledrive"   "googlesheets4" "haven"         "hms"           "httr"          "jsonlite"     
-## [15] "lubridate"     "magrittr"      "modelr"        "pillar"        "purrr"         "readr"         "readxl"       
-## [22] "reprex"        "rlang"         "rstudioapi"    "rvest"         "stringr"       "tibble"        "tidyr"        
-## [29] "xml2"          "tidyverse"
+##  [1] "broom"         "conflicted"    "cli"           "dbplyr"        "dplyr"         "dtplyr"       
+##  [7] "forcats"       "ggplot2"       "googledrive"   "googlesheets4" "haven"         "hms"          
+## [13] "httr"          "jsonlite"      "lubridate"     "magrittr"      "modelr"        "pillar"       
+## [19] "purrr"         "ragg"          "readr"         "readxl"        "reprex"        "rlang"        
+## [25] "rstudioapi"    "rvest"         "stringr"       "tibble"        "tidyr"         "xml2"         
+## [31] "tidyverse"
 ```
 
 Note that not all these packages are loaded by default.
@@ -329,10 +334,10 @@ tidymodels::tidymodels_packages()
 ```
 
 ```
-##  [1] "broom"        "cli"          "conflicted"   "dials"        "dplyr"        "ggplot2"      "hardhat"     
-##  [8] "infer"        "modeldata"    "parsnip"      "purrr"        "recipes"      "rlang"        "rsample"     
-## [15] "rstudioapi"   "tibble"       "tidyr"        "tune"         "workflows"    "workflowsets" "yardstick"   
-## [22] "tidymodels"
+##  [1] "broom"        "cli"          "conflicted"   "dials"        "dplyr"        "ggplot2"     
+##  [7] "hardhat"      "infer"        "modeldata"    "parsnip"      "purrr"        "recipes"     
+## [13] "rlang"        "rsample"      "rstudioapi"   "tibble"       "tidyr"        "tune"        
+## [19] "workflows"    "workflowsets" "yardstick"    "tidymodels"
 ```
 
 
