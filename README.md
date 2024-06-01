@@ -73,6 +73,13 @@ The following schedule is subject to change based on class interests and time co
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/03-reprod-vc/03-reprod-vc.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/03-reprod-vc/03-reprod-vc.pdf)
 
+4. ML Workflow
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/04-ml-workflow/04-ml-workflow.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/04-ml-workflow/04-ml-workflow.pdf)
+
+5. Regression and Regularization
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-regression-regularization.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-regression-regularization.pdf)
 
 
 ### Projects
