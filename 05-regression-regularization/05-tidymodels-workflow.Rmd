@@ -16,7 +16,7 @@ output:
 
 # Load packages
 
-Load packages
+Load packages 
 ```{r pacman, message=FALSE, warning=FALSE, eval=TRUE}
 library(tidyverse)   # for data wrangling and visualization
 library(tidymodels)  # for data modeling
@@ -270,8 +270,7 @@ num_comp_1se <- pls_results %>%
   select_by_one_std_err(
     metric = "rmse",
     desc(num_comp)
-  ) %>% 
-  select(num_comp)
+  )
 ```
 
 ## Evaluate model on the test set
