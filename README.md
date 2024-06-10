@@ -87,7 +87,7 @@ The following schedule is subject to change based on class interests and time co
 
 5.3 [Ridge, lasso, PCR and PLS: A Tidymodels Workflow](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-tidymodels-workflow.html)
 
-5.4 [Shrinkage and selection intuition](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-shrinkage-selection-intuition.html)
+5.4 [Shrinkage and selection intuition](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/shrinkage-selection-intuition.html)
 
 
 ### Projects
