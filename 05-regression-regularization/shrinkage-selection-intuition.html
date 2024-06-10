@@ -1483,6 +1483,16 @@ margin-right: -30px;
 })();
 </script>
 
+<style type="text/css">
+p.abstract{
+text-align: center;
+font-weight: bold;
+}
+div.abstract{
+margin: auto;
+width: 90%;
+}
+</style>
 
 
 
@@ -1657,6 +1667,16 @@ border-radius: 0px;
 <h1 class="title toc-ignore">Shrinkage and Selection Intuition</h1>
 <h4 class="author">Itamar Caspi</h4>
 <h4 class="date">(updated: 2024-06-10)</h4>
+<div class="abstract">
+<p class="abstract">Abstract</p>
+<p>Ridge regression and the lasso are two popular regularization
+techniques used in linear regression. In this document, we explore the
+intuition behind these methods in a simplified setting where the number
+of observations equals the number of predictors, as in Hastie et
+al. (2015.) We show how ridge regression shrinks all coefficients by the
+same proportion, while the lasso can shrink some coefficients to exactly
+zero, effectively performing feature selection.</p>
+</div>
 
 </div>
 
@@ -1711,20 +1731,10 @@ finding the coefficients <span class="math inline">\(\beta_1, \ldots,
 <p><span class="math display">\[\hat{\beta}_j = y_j\]</span></p>
 <p>meaning that each coefficient estimate is equal to its corresponding
 response value. Let’s calculate the OLS estimates:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>beta_OLS <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> y</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>beta_OLS</span></code></pre></div>
-<pre><code>##       [,1]
-##  [1,]   -5
-##  [2,]   -4
-##  [3,]   -3
-##  [4,]   -2
-##  [5,]   -1
-##  [6,]    0
-##  [7,]    1
-##  [8,]    2
-##  [9,]    3
-## [10,]    4
-## [11,]    5</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> X)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>beta_ols <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">coef</span>(ols_model))</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>beta_ols</span></code></pre></div>
+<pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
 <p>Note that the fit here is perfect, i.e., <span class="math inline">\(R^2 = 1\)</span>. This is expected given the
 simple structure of the data and the fact that the number of
 observations equals the number of predictors.</p>
@@ -1742,9 +1752,8 @@ regularization parameter.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>lambda_ridge <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>ridge_model  <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(X, y, <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">lambda =</span> lambda_ridge, <span class="at">standardize =</span> <span class="cn">FALSE</span>, <span class="at">intercept =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>beta_ridge   <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">coef</span>(ridge_model))[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>beta_ridge</span></code></pre></div>
-<pre><code>##  [1] -3.709610 -2.967688 -2.225766 -1.483844 -0.741922  0.000000  0.741922
-##  [8]  1.483844  2.225766  2.967688  3.709610</code></pre>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">round</span>(beta_ridge, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##  [1] -3.7 -3.0 -2.2 -1.5 -0.7  0.0  0.7  1.5  2.2  3.0  3.7</code></pre>
 <p>The ridge estimates shrink each coefficient by the same proportion,
 regardless of the value of the response. This is a key property of ridge
 regression, which helps to reduce the variance of the estimates and
@@ -1761,7 +1770,7 @@ absolute value of <span class="math inline">\(\beta_j\)</span>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>lambda_lasso <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>lasso_model  <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(X, y, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">lambda =</span> lambda_lasso, <span class="at">standardize =</span> <span class="cn">FALSE</span>, <span class="at">intercept =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>beta_lasso   <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">coef</span>(lasso_model))[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>beta_lasso</span></code></pre></div>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">round</span>(beta_lasso, <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##  [1] -3.9 -2.9 -1.9 -0.9  0.0  0.0  0.0  0.9  1.9  2.9  3.9</code></pre>
 <p>The lasso estimates can shrink some coefficients to exactly zero,
 effectively performing feature selection. This property of the lasso
@@ -1791,12 +1800,12 @@ This type of shrinkage is known as soft-thresholding.</p>
 <p>Let’s visualize the behavior of ridge regression and the lasso in
 this simplified setting.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>df_lasso <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="at">y =</span> y, <span class="at">beta_OLS =</span> beta_OLS[,<span class="dv">1</span>], <span class="at">beta_lasso =</span> beta_lasso</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="at">y =</span> y, <span class="at">beta_ols =</span> beta_ols, <span class="at">beta_lasso =</span> beta_lasso</span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>)</span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>p_lasso <span class="ot">&lt;-</span> </span>
 <span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  df_lasso <span class="sc">|&gt;</span> </span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> beta_OLS)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> beta_ols)) <span class="sc">+</span></span>
 <span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> beta_lasso), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
@@ -1807,12 +1816,12 @@ this simplified setting.</p>
 <span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;beta&quot;</span></span>
 <span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>df_ridge <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="at">y =</span> y, <span class="at">beta_OLS =</span> beta_OLS[,<span class="dv">1</span>], <span class="at">beta_ridge =</span> beta_ridge</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="at">y =</span> y, <span class="at">beta_ols =</span> beta_ols, <span class="at">beta_ridge =</span> beta_ridge</span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>)</span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>p_ridge <span class="ot">&lt;-</span> </span>
 <span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>  df_ridge <span class="sc">|&gt;</span> </span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> beta_OLS)) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> beta_ols)) <span class="sc">+</span></span>
 <span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> beta_ridge), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>

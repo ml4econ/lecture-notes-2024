@@ -11,6 +11,10 @@ output:
     toc: yes
     toc_depth: 4
     toc_float: yes
+abstract: >
+  Ridge regression and the lasso are two popular regularization techniques used in linear regression. In this document, we explore the intuition behind these methods in a simplified setting where the number of observations equals the number of predictors, as in Hastie et al. (2015.) We show how ridge regression shrinks all coefficients by the same proportion, while the lasso can shrink some coefficients to exactly zero, effectively performing feature selection.
+
+
 ---
 
 ```{r setup, include=FALSE}
@@ -62,8 +66,9 @@ $$\hat{\beta}_j = y_j$$
 
 meaning that each coefficient estimate is equal to its corresponding response value. Let's calculate the OLS estimates:
 ```{r}
-beta_OLS <- solve(t(X) %*% X) %*% t(X) %*% y
-beta_OLS
+ols_model <- lm(y ~ 0 + X)
+beta_ols <- as.vector(coef(ols_model))
+beta_ols
 ```
 
 Note that the fit here is perfect, i.e., $R^2 = 1$. This is expected given the simple structure of the data and the fact that the number of observations equals the number of predictors.
@@ -81,7 +86,7 @@ The ridge regression estimates in this case are given by:
 lambda_ridge <- 0.1
 ridge_model  <- glmnet(X, y, alpha = 0, lambda = lambda_ridge, standardize = FALSE, intercept = FALSE)
 beta_ridge   <- as.vector(coef(ridge_model))[-1]
-beta_ridge
+round(beta_ridge, 1)
 ```
 
 The ridge estimates shrink each coefficient by the same proportion, regardless of the value of the response. This is a key property of ridge regression, which helps to reduce the variance of the estimates and improve the model's generalization performance.
@@ -99,7 +104,7 @@ The lasso estimates in this case are given by:
 lambda_lasso <- 0.1
 lasso_model  <- glmnet(X, y, alpha = 1, lambda = lambda_lasso, standardize = FALSE, intercept = FALSE)
 beta_lasso   <- as.vector(coef(lasso_model))[-1]
-beta_lasso
+round(beta_lasso, 1)
 ```
 
 The lasso estimates can shrink some coefficients to exactly zero, effectively performing feature selection. This property of the lasso makes it useful when dealing with high-dimensional data or when feature selection is desired.
@@ -127,12 +132,12 @@ This means that the lasso shrinks each coefficient towards zero by a constant am
 Let's visualize the behavior of ridge regression and the lasso in this simplified setting.
 ```{r}
 df_lasso <- tibble(
-  y = y, beta_OLS = beta_OLS[,1], beta_lasso = beta_lasso
+  y = y, beta_ols = beta_ols, beta_lasso = beta_lasso
 )
 
 p_lasso <- 
   df_lasso |> 
-  ggplot(aes(x = y, y = beta_OLS)) +
+  ggplot(aes(x = y, y = beta_ols)) +
   geom_hline(yintercept = 0) +
   geom_line(linetype = "dashed", color = "grey") +
   geom_line(aes(y = beta_lasso), color = "red") +
@@ -146,12 +151,12 @@ p_lasso <-
 
 ```{r}
 df_ridge <- tibble(
-  y = y, beta_OLS = beta_OLS[,1], beta_ridge = beta_ridge
+  y = y, beta_ols = beta_ols, beta_ridge = beta_ridge
 )
 
 p_ridge <- 
   df_ridge |> 
-  ggplot(aes(x = y, y = beta_OLS)) +
+  ggplot(aes(x = y, y = beta_ols)) +
   geom_hline(yintercept = 0) +
   geom_line(linetype = "dashed", color = "grey") +
   geom_line(aes(y = beta_ridge), color = "red") +
