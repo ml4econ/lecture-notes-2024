@@ -80,6 +80,10 @@ The following schedule is subject to change based on class interests and time co
 5. Regression and Regularization
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-regression-regularization.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-regression-regularization.pdf)
+5.1 [Prepare browser data](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-prepare-browser-data.html)  
+5.2 [Ridge and lasso simulation](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-simulations.html)  
+5.3 [Ridge, lasso, PCR and PLS: A Tidymodels Workflow](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-tidymodels-workflow.html)
+5.4 [Shrinkage and selection intuition](https://raw.githack.com/ml4econ/lecture-notes-2024/master/05-regression-regularization/05-shrinkage-selection-intuition.html)
 
 
 ### Projects
