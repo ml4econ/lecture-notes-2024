@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### Itamar Caspi
 ]
 .date[
-### June 1, 2024 (updated: 2024-06-01)
+### June 1, 2024 (updated: 2024-06-10)
 ]
 
 ---
@@ -743,7 +743,7 @@ Using `s = lamda.1se`:
 ---
 # Understanding Shrinkage
 
-Assume that `\(n = p\)` and `\(\mathbf{X}\)` is an `\(n \times p\)` orthonormal matrix with unit vectors. We are estimating a regression without an intercept.
+Assume that `\(n = p\)` and `\(\mathbf{X}\)` is an `\(n \times p\)` diagonal matrix with 1’s on the diagonal. We are estimating a regression without an intercept.
 
 Under these assumptions, OLS finds `\(\beta_1,\ldots,\beta_p\)` that minimize `\(\sum_{j=1}^{p}\left(y_{j}-\beta_{j}\right)^{2}\)`. The solution is `\(\hat{\beta}^{\text{OLS}}_{j}=y_{j}\)` (i.e., a perfect fit, `\(R^2 = 1\)`).
 

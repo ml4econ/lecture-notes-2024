@@ -24,6 +24,13 @@ library(plsmod)      # for estimating pls regression
 library(here)         # for referencing files and folders
 ```
 
+```{r, eval=FALSE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("mixOmics")
+```
+
 and set seed for replication
 ```{r}
 set.seed(1203)
