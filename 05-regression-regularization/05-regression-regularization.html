@@ -25,7 +25,7 @@ class: center, middle, inverse, title-slide
 ### Itamar Caspi
 ]
 .date[
-### June 1, 2024 (updated: 2024-06-10)
+### June 1, 2024 (updated: 2024-06-16)
 ]
 
 ---
@@ -880,14 +880,14 @@ head(shows)
 
 ```
 ## # A tibble: 6 x 6
-##   Show                               Network    PE   GRP Genre           Duration
-##   &lt;chr&gt;                              &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-## 1 Living with Ed                     HGTV     54   151   Reality               30
-## 2 Monarch Cove                       LIFE     64.6 376.  Drama/Adventure       60
-## 3 Top Chef                           BRAVO    78.6 808.  Reality               60
-## 4 Iron Chef America                  FOOD     62.6  17.3 Reality               30
-## 5 Trading Spaces: All Stars          TLC      56    44.1 Reality               60
-## 6 Lisa Williams: Life Among the Dead LIFE     56.2 383.  Reality               60
+##   Show                               Network    PE   GRP Genre          Duration
+##   &lt;chr&gt;                              &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+## 1 Living with Ed                     HGTV     54   151   Reality              30
+## 2 Monarch Cove                       LIFE     64.6 376.  Drama/Adventu~       60
+## 3 Top Chef                           BRAVO    78.6 808.  Reality              60
+## 4 Iron Chef America                  FOOD     62.6  17.3 Reality              30
+## 5 Trading Spaces: All Stars          TLC      56    44.1 Reality              60
+## 6 Lisa Williams: Life Among the Dead LIFE     56.2 383.  Reality              60
 ```
 
 ---
@@ -904,17 +904,19 @@ head(survey)
 
 ```
 ## # A tibble: 6 x 22
-##   Viewer Show  Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious Q1_Motivated Q1_Comforted Q1_Annoyed Q1_Indifferent
-##    &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
-## 1     71 Iron~            3          4        4          3          5            4            3          2              2
-## 2     71 Trad~            4          4        3          4          5            2            3          3              2
-## 3     71 Hous~            4          4        4          5          5            3            3          2              1
-## 4     71 What~            4          3        3          3          4            2            2          4              2
-## 5     71 Amer~            4          4        3          4          4            4            3          3              4
-## 6     73 Next             2          4        2          4          2            3            3          3              3
-## # i 11 more variables: Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;, Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;,
-## #   Q2_Entertaining &lt;dbl&gt;, Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;, Q2_Dramatic &lt;dbl&gt;,
-## #   Q2_Suspenseful &lt;dbl&gt;
+##   Viewer Show             Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious
+##    &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+## 1     71 Iron Chef Ameri~            3          4        4          3          5
+## 2     71 Trading Spaces:~            4          4        3          4          5
+## 3     71 House Hunters               4          4        4          5          5
+## 4     71 What Not to Wear            4          3        3          3          4
+## 5     71 America's Next ~            4          4        3          4          4
+## 6     73 Next                        2          4        2          4          2
+## # i 15 more variables: Q1_Motivated &lt;dbl&gt;, Q1_Comforted &lt;dbl&gt;,
+## #   Q1_Annoyed &lt;dbl&gt;, Q1_Indifferent &lt;dbl&gt;, Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;,
+## #   Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;, Q2_Entertaining &lt;dbl&gt;,
+## #   Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;,
+## #   Q2_Dramatic &lt;dbl&gt;, Q2_Suspenseful &lt;dbl&gt;
 ```
 
 ---
@@ -933,17 +935,19 @@ head(survey_mean)
 
 ```
 ## # A tibble: 6 x 21
-##   Show         Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious Q1_Motivated Q1_Comforted Q1_Annoyed Q1_Indifferent
-##   &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
-## 1 30 Rock              3.69       3.47     3.65       3.74       3.58         2.96         2.97       2.12           2.50
-## 2 America's N~         3.84       3.69     3.58       3.84       3.71         3.32         2.95       2.42           2.47
-## 3 American Ch~         3.67       3.50     3.46       3.58       3.71         3.01         2.86       2.25           2.43
-## 4 Bones                4.12       3.71     3.42       4.06       4.15         3.29         2.95       1.72           2.11
-## 5 CSI: Crime ~         4.04       3.70     3.44       3.98       4.05         3.35         2.95       2.09           2.26
-## 6 Close to Ho~         3.80       3.32     3.16       3.83       3.73         3.18         2.83       1.93           2.11
-## # i 11 more variables: Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;, Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;,
-## #   Q2_Entertaining &lt;dbl&gt;, Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;, Q2_Dramatic &lt;dbl&gt;,
-## #   Q2_Suspenseful &lt;dbl&gt;
+##   Show       Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious Q1_Motivated
+##   &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+## 1 30 Rock            3.69       3.47     3.65       3.74       3.58         2.96
+## 2 America's~         3.84       3.69     3.58       3.84       3.71         3.32
+## 3 American ~         3.67       3.50     3.46       3.58       3.71         3.01
+## 4 Bones              4.12       3.71     3.42       4.06       4.15         3.29
+## 5 CSI: Crim~         4.04       3.70     3.44       3.98       4.05         3.35
+## 6 Close to ~         3.80       3.32     3.16       3.83       3.73         3.18
+## # i 14 more variables: Q1_Comforted &lt;dbl&gt;, Q1_Annoyed &lt;dbl&gt;,
+## #   Q1_Indifferent &lt;dbl&gt;, Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;,
+## #   Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;, Q2_Entertaining &lt;dbl&gt;,
+## #   Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;,
+## #   Q2_Dramatic &lt;dbl&gt;, Q2_Suspenseful &lt;dbl&gt;
 ```
 
 ---
@@ -961,17 +965,19 @@ head(df_join)
 
 ```
 ## # A tibble: 6 x 23
-##      PE Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious Q1_Motivated Q1_Comforted Q1_Annoyed Q1_Indifferent
-##   &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
-## 1  54           3.89       3.78     3.93       3.87       3.80         3.61         3.57       2.61           3.12
-## 2  64.6         4.05       3.86     3.83       3.88       4            3.94         3.91       2.97           3.15
-## 3  78.6         3.85       3.60     3.63       3.77       3.86         3.20         3          2.19           2.40
-## 4  62.6         3.91       3.69     3.61       3.85       3.94         3.33         3.05       2.12           2.44
-## 5  56           3.81       3.54     3.51       3.78       3.91         3.29         2.80       2.10           2.43
-## 6  56.2         3.72       3.65     3.55       3.66       3.76         3.57         3.38       2.20           2.58
-## # i 13 more variables: Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;, Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;,
-## #   Q2_Entertaining &lt;dbl&gt;, Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;, Q2_Dramatic &lt;dbl&gt;,
-## #   Q2_Suspenseful &lt;dbl&gt;, Genre &lt;chr&gt;, Show &lt;chr&gt;
+##      PE Q1_Attentive Q1_Excited Q1_Happy Q1_Engaged Q1_Curious Q1_Motivated
+##   &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+## 1  54           3.89       3.78     3.93       3.87       3.80         3.61
+## 2  64.6         4.05       3.86     3.83       3.88       4            3.94
+## 3  78.6         3.85       3.60     3.63       3.77       3.86         3.20
+## 4  62.6         3.91       3.69     3.61       3.85       3.94         3.33
+## 5  56           3.81       3.54     3.51       3.78       3.91         3.29
+## 6  56.2         3.72       3.65     3.55       3.66       3.76         3.57
+## # i 16 more variables: Q1_Comforted &lt;dbl&gt;, Q1_Annoyed &lt;dbl&gt;,
+## #   Q1_Indifferent &lt;dbl&gt;, Q2_Relatable &lt;dbl&gt;, Q2_Funny &lt;dbl&gt;,
+## #   Q2_Confusing &lt;dbl&gt;, Q2_Predictable &lt;dbl&gt;, Q2_Entertaining &lt;dbl&gt;,
+## #   Q2_Fantasy &lt;dbl&gt;, Q2_Original &lt;dbl&gt;, Q2_Believable &lt;dbl&gt;, Q2_Boring &lt;dbl&gt;,
+## #   Q2_Dramatic &lt;dbl&gt;, Q2_Suspenseful &lt;dbl&gt;, Genre &lt;chr&gt;, Show &lt;chr&gt;
 ```
 
 ---

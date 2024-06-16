@@ -1695,12 +1695,12 @@ let’s consider a simplified case where the number of observations (<span class
 (<span class="math inline">\(p\)</span>), and the design matrix (<span class="math inline">\(\mathbf{X}\)</span>) is a diagonal matrix with 1’s
 on the diagonal and 0’s in all off-diagonal elements. Additionally,
 assume that we are performing regression without an intercept.</p>
-<p>Let’s set up this scenario. First, define the dimention of the data
+<p>Let’s set up this scenario. First, define the dimension of the data
 <span class="math inline">\(n = p = 11\)</span>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">11</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">11</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">11</span>  <span class="co"># number of observations</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">11</span>  <span class="co"># number of predictors</span></span></code></pre></div>
 <p>Next, create the design matrix <span class="math inline">\(\mathbf{X}\)</span> as a diagonal matrix:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">diag</span>(n)</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">diag</span>(n)  <span class="co"># design matrix</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>X</span></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]
 ##  [1,]    1    0    0    0    0    0    0    0    0     0     0
@@ -1716,7 +1716,7 @@ assume that we are performing regression without an intercept.</p>
 ## [11,]    0    0    0    0    0    0    0    0    0     0     1</code></pre>
 <p>In this setting, the response vector (<span class="math inline">\(\mathbf{y}\)</span>) is simply set as a sequence
 of integers from <span class="math inline">\(-5\)</span> to <span class="math inline">\(5\)</span>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span>  <span class="co"># response vector</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
 </div>
