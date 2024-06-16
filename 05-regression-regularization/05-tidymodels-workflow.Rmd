@@ -1,5 +1,5 @@
 ---
-title: "Ridge/Lasso, PCR, and PLS"
+title: "Ridge, Lasso, PCR, and PLS"
 subtitle: "A Tidymodels Workflow"
 author: "Itamar Caspi"
 date: '(updated: `r Sys.Date()`)'
@@ -12,6 +12,8 @@ output:
     toc: yes
     toc_depth: 4
     toc_float: yes
+abstract: >
+  This document demonstrates a tidymodels workflow for ridge, lasso, principal component regression (PCR), and partial least squares (PLS) regression. We will use the `browser` dataset to estimate the regularization path, tune the hyperparameter $\lambda$ for ridge and lasso and the number of components for PCR and PLS, and evaluate the models on the test set. 
 ---
 
 # Load packages
@@ -37,6 +39,8 @@ set.seed(1203)
 ```
 
 # Read data
+
+Read the `browser` dataset from the `data` folder. 
 ```{r}
 browser <- here("05-regression-regularization/data","browser-sample.csv") %>% 
   read_csv()

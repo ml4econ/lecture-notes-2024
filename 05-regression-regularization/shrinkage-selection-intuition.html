@@ -1666,7 +1666,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Shrinkage and Selection Intuition</h1>
 <h4 class="author">Itamar Caspi</h4>
-<h4 class="date">(updated: 2024-06-10)</h4>
+<h4 class="date">(updated: 2024-06-16)</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Ridge regression and the lasso are two popular regularization
@@ -1685,7 +1685,8 @@ zero, effectively performing feature selection.</p>
 <h2>Load necessary packages</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(glmnet)      <span class="co"># for estimating ridge and lasso</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(cowplot)     <span class="co"># for combining plots</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(cowplot)     <span class="co"># for combining plots</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(leaps)       <span class="co"># for subset selection</span></span></code></pre></div>
 </div>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
@@ -1731,7 +1732,7 @@ finding the coefficients <span class="math inline">\(\beta_1, \ldots,
 <p><span class="math display">\[\hat{\beta}_j = y_j\]</span></p>
 <p>meaning that each coefficient estimate is equal to its corresponding
 response value. Let’s calculate the OLS estimates:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> X)</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> X)  <span class="co"># fit OLS model without intercept</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>beta_ols <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">coef</span>(ols_model))</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>beta_ols</span></code></pre></div>
 <pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
@@ -1840,6 +1841,48 @@ some coefficients to exactly zero, effectively performing feature
 selection (right panel, in red). This property of the lasso makes it
 useful when dealing with high-dimensional data or when feature selection
 is desired.</p>
+</div>
+<div id="subset-selection" class="section level2">
+<h2>Subset selection</h2>
+<p>Another approach to feature selection is subset selection, where we
+consider all possible subsets of predictors and select the best subset
+based on some criterion. For comparison, let’s perform subset selection
+using the <code>regsubsets</code> function from the <code>leaps</code>
+package. We limit the number of predictors to 10 to keep the computation
+feasible.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>subset <span class="ot">&lt;-</span> <span class="fu">regsubsets</span>(<span class="at">x =</span> X, <span class="at">y =</span> y, <span class="at">intercept =</span> <span class="cn">FALSE</span>, <span class="at">nvmax =</span> <span class="dv">10</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">summary</span>(subset)</span></code></pre></div>
+<pre><code>## Subset selection object
+## 11 Variables 
+##   Forced in Forced out
+## b     FALSE      FALSE
+## c     FALSE      FALSE
+## d     FALSE      FALSE
+## e     FALSE      FALSE
+## f     FALSE      FALSE
+## g     FALSE      FALSE
+## h     FALSE      FALSE
+## i     FALSE      FALSE
+## j     FALSE      FALSE
+## k     FALSE      FALSE
+## 1 subsets of each size up to 10
+## Selection Algorithm: exhaustive
+##           a   b   c   d   e   f   g   h   i   j   k  
+## 1  ( 1 )  &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;
+## 2  ( 1 )  &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot;
+## 3  ( 1 )  &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot;
+## 4  ( 1 )  &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot;
+## 5  ( 1 )  &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot;
+## 6  ( 1 )  &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot; &quot;*&quot;
+## 7  ( 1 )  &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot; &quot;*&quot;
+## 8  ( 1 )  &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot;
+## 9  ( 1 )  &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot; &quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot;
+## 10  ( 1 ) &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot; &quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot; &quot;*&quot;</code></pre>
+<p>As the output shows, the best subset selection method selects the
+subset of predictors that minimizes the residual sum of squares (RSS)
+for each subset size. Note that the selection is <em>exhaustive</em>,
+i.e., it considers all possible subsets of predictors for each subset
+size.</p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>

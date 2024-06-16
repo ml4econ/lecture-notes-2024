@@ -12,7 +12,7 @@
 <meta name="author" content="Itamar Caspi" />
 
 
-<title>Ridge/Lasso, PCR, and PLS</title>
+<title>Ridge, Lasso, PCR, and PLS</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1483,6 +1483,16 @@ margin-right: -30px;
 })();
 </script>
 
+<style type="text/css">
+p.abstract{
+text-align: center;
+font-weight: bold;
+}
+div.abstract{
+margin: auto;
+width: 90%;
+}
+</style>
 
 
 
@@ -1654,10 +1664,19 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Ridge/Lasso, PCR, and PLS</h1>
+<h1 class="title toc-ignore">Ridge, Lasso, PCR, and PLS</h1>
 <h3 class="subtitle">A Tidymodels Workflow</h3>
 <h4 class="author">Itamar Caspi</h4>
-<h4 class="date">(updated: 2024-06-10)</h4>
+<h4 class="date">(updated: 2024-06-15)</h4>
+<div class="abstract">
+<p class="abstract">Abstract</p>
+<p>This document demonstrates a tidymodels workflow for ridge, lasso,
+principal component regression (PCR), and partial least squares (PLS)
+regression. We will use the <code>browser</code> dataset to estimate the
+regularization path, tune the hyperparameter <span class="math inline">\(\lambda\)</span> for ridge and lasso and the
+number of components for PCR and PLS, and evaluate the models on the
+test set.</p>
+</div>
 
 </div>
 
@@ -1678,6 +1697,8 @@ border-radius: 0px;
 </div>
 <div id="read-data" class="section level1">
 <h1>Read data</h1>
+<p>Read the <code>browser</code> dataset from the <code>data</code>
+folder.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>browser <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;05-regression-regularization/data&quot;</span>,<span class="st">&quot;browser-sample.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
 <pre><code>## Rows: 1200 Columns: 201
