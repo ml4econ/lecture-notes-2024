@@ -718,7 +718,7 @@ Let $K$ represent the length of $\boldsymbol{\beta}$, i.e., the number of featur
 
 The coefficient matrix $\mathbf{B}=\left[\boldsymbol{\beta}_{1} \cdots \boldsymbol{\beta}_{G}\right]$ contains $K\times G$ elements: $G$ coefficients, one per class, multiplied by the number of features $K$.
 
-Similar to the binomial case, we can minimize the deviance subject to a standard lasso-type ($\ell_1$ norm) penalty on $\beta$:
+Similar to the binomial case, we can minimize the deviance subject to a standard lasso-type ( $\ell_1$ norm) penalty on $\beta$:
 
 $$\min _{\mathbf{B} \in \mathbb{R}^{K\times G}} \left\{-\frac{2}{N} \sum_{i=1}^N \sum_{j=1}^G y_{ij} \log p_{ij}+\lambda \sum_{i=1}^{K-1} \sum_{j=1}^G \left|\beta_{ij}\right|\right\}$$
 where $p_{ij} = \Lambda(\mathbf{x}_i^{\prime}\beta_{j})$, and the intercepts are unregularized.
@@ -784,7 +784,7 @@ fgl_long %>%
   scale_fill_viridis_d() +
   theme(legend.position = "none")
 ```
-Some of the features serve as clear discriminators. For example, the element `Ba` is present in all glass types except for `Head`, where it is barely present.
+Some of the features serve as clear discriminators. For example, the element `Ba` is most prevalent in `Head` glass and barely present in the other types.
 ]
 .pull-right[
 ```{r, ref.label = 'box_fgl', echo=FALSE}
@@ -892,7 +892,7 @@ fgl_pred %>%
   conf_mat(type, class)
 ```
 
-For example, our model correctly classified 53 observations as `WinF` out of all the predicted `WinF` samples, resulting in a precision rate of $53/80 = 66.3\%$.
+For example, our model correctly classified 53 observations as `WinF` out of all the predicted `WinF` samples, resulting in a precision rate of $53/70 = 81.4\%$.
 
 Similarly, the model correctly predicted 58 `WinNF` samples out of the actual number of `WinNF` samples, which is 76, resulting in a recall rate of $58/76 = 76.3\%$.
  
