@@ -96,6 +96,9 @@ The following schedule is subject to change based on class interests and time co
 
 ### Projects
 
+A. Kaggle competition [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/a-kaggle/a-kaggle.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/a-kaggle/a-kaggle.pdf)  
+
 ## Readings
 
 Can be found [here](https://github.com/ml4econ/lecture-notes-2024/blob/master/resources.md).
