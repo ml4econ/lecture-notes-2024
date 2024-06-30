@@ -89,6 +89,10 @@ The following schedule is subject to change based on class interests and time co
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/06-classification/06-classification.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/06-classification/06-classification.pdf)
 
+7. Decision Trees and Random Forests
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.pdf)
+
 
 ### Projects
 
