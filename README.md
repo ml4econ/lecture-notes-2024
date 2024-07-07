@@ -93,6 +93,13 @@ The following schedule is subject to change based on class interests and time co
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.pdf)
 
+8. Causal Inference
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/08-causal-inference/08-causal-inference.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/08-causal-inference/08-causal-inference.pdf)
+
+9. High-Dimensional Confounding Adjustment
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/09-lasso-ate/09-lasso-ate.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/09-lasso-ate/09-lasso-ate.pdf)
 
 ### Projects
 
