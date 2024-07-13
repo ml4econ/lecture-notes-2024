@@ -659,7 +659,7 @@ knitr::include_graphics("figs/dml.png")
 ]
 
 ---
-class: .title-slide-final, center, inverse, middle
+usclass: .title-slide-final, center, inverse, middle
 
 # `slides %>% end()`
 

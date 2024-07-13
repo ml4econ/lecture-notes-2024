@@ -60,7 +60,7 @@ The following schedule is subject to change based on class interests and time co
 
 ## Slides
 
-### Part I: Supervised Machine Learning
+### Part I: Machine Learning
 
 1. Course Overview 
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/01-overview/01-overview.html)
@@ -93,6 +93,8 @@ The following schedule is subject to change based on class interests and time co
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/07-trees-forests/07-trees-forests.pdf)
 
+### Part II: Causal Inference and ML
+
 8. Causal Inference
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/08-causal-inference/08-causal-inference.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/08-causal-inference/08-causal-inference.pdf)
@@ -100,6 +102,20 @@ The following schedule is subject to change based on class interests and time co
 9. High-Dimensional Confounding Adjustment
 [(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/09-lasso-ate/09-lasso-ate.html)
 [(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/09-lasso-ate/09-lasso-ate.pdf)
+
+10. High-Dimensional Heterogeneous Treatment Effects
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/10-trees-cate/10-trees-cate.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/10-trees-cate/10-trees-cate.pdf)
+
+### Part III: Unsupervised Learning and Language Models
+
+11. Text as Data
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/11-text-mining/11-text-mining.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/11-text-mining/11-text-mining.pdf)
+
+12. Large Language Models
+[(HTML)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/12-large-lm/12-large-lm.html)
+[(PDF)](https://raw.githack.com/ml4econ/lecture-notes-2024/master/12-large-lm/12-large-lm.pdf)
 
 ### Projects
 

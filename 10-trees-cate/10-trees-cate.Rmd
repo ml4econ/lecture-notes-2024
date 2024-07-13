@@ -1,8 +1,8 @@
 ---
 title: "10 - High-Dimensional Heterogeneous Effects"
-subtitle: "ml4econ, HUJI 2023"
+subtitle: "ml4econ, HUJI 2024"
 author: "Itamar Caspi"
-date: "June 11, 2023 (updated: `r Sys.Date()`)"
+date: "July 13, 2024 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     css: [default, "style/middlebury.css", "style/middlebury-fonts.css"]
@@ -509,8 +509,8 @@ A description from the [`{experimentdatar}`](https://github.com/itamarcaspi/expe
 You can install the _development_ version from GitHub
 
 ```{r, eval = FALSE}
-install.packages("devtools")
-devtools::install_github("itamarcaspi/experimentdatar")
+install.packages("pak")
+pak::pak("itamarcaspi/experimentdatar")
 ```
 
 
